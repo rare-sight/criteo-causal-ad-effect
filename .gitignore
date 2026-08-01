@@ -1,0 +1,33 @@
+# Data (never upload the large csv)
+data/*.csv
+data/*.csv.gz
+data/*.zip
+*.csv
+*.csv.gz
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large outputs
+*.h5
+*.parquet
