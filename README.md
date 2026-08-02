@@ -23,18 +23,32 @@ A simple comparison of conversion rates between users who saw the ad and those w
 
 ## Key Results
 
-| Method                        | ATE Estimate | Percentage Points |
+### Average Treatment Effect
+| Method                        | ATE          | Percentage Points |
 |-------------------------------|--------------|-------------------|
 | Naive                         | 0.000994    | 0.0994 pp        |
 | Propensity Score Matching     | 0.000872    | 0.0872 pp        |
 | Inverse Probability Weighting | 0.000811    | 0.0811 pp        |
-| Doubly Robust                 | 0.000739    | 0.0739 pp        |
+| Doubly Robust (preferred)     | 0.000739    | 0.0739 pp        |
 
-### Main Findings
-- All methods produce very similar estimates (0.074 – 0.099 percentage points).
-- Covariates were already well balanced (|SMD| < 0.1 for all features), consistent with the randomized nature of the original experiment.
-- Propensity scores were tightly concentrated around the overall treatment rate (~0.85) with excellent overlap.
-- **Conclusion**: Ad exposure increases conversion probability by approximately **0.07–0.10 percentage points** (relative lift of roughly 35–47% against the control baseline).
+The ad has a positive but small average effect on conversion.
+
+### Uplift Modeling (T-Learner)
+We went beyond the average effect and estimated **individual treatment effects**.
+
+- Users were ranked by predicted uplift (benefit from seeing the ad).
+- **Qini Coefficient = 29.72** → the model is significantly better than random targeting.
+- The Qini curve shows that most incremental conversions come from the top 30–40% of users.
+
+### Business / ROI Impact
+**Assumptions:** Ad cost = $0.05 | Conversion value = $40
+
+| Strategy                    | Expected Profit per User | Decision          |
+|----------------------------|---------------------------|-------------------|
+| Show ad to everyone        | –$0.020                   | Not profitable    |
+| Target only top 30% uplift | +$0.113                   | **Profitable**    |
+
+**Recommendation:** Do not run the campaign on the full population. Use the uplift model to prioritize high-response users.
 
 ## How to Run
 ```bash
