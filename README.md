@@ -8,7 +8,7 @@ A simple comparison of conversion rates between users who saw the ad and those w
 
 ## Dataset
 - **Source**: [Criteo Uplift Modeling Dataset v2.1](https://ailab.criteo.com/criteo-uplift-prediction-dataset/)
-- **Size**: ~14 million rows (analysis performed on a random sample of ~400k rows)
+- **Size**: ~1.4 million rows (analysis performed on a random sample of ~400k rows)
 - **Treatment**: Binary indicator of ad exposure
 - **Outcome**: Binary conversion
 - **Features**: 12 anonymized continuous covariates (`f0`–`f11`)
